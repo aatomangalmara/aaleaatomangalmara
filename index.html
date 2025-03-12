@@ -4,24 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mangalmara</title>
+    <title>Aato Mangalmara</title>
     <link rel="icon" href="#">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             width: 100vw;
             height: 100vh;
+            height: 100dvh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        #heading {
+            color: #333;
+            font-family: "Georgia", serif;
+            font-weight: bold;
+            font-size: clamp(2rem, 5vw, 4rem);
+        }
+
+        #para span {
+            padding: 1px;
+            display: inline-block;
+            position: relative;
+            left: 0;
+            bottom: -25px;
+            animation: wave 2.8s infinite ease-in-out;
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>Aato Mangalmara</h1>
-    <br>
-    <h3>Test Hello</h3>
+    <p id="heading">Aato Mangalmara</p>
+
+    <p id="para">
+        <span>C</span><span>o</span><span>m</span><span>i</span><span>n</span><span>g</span>
+        <span>S</span><span>o</span><span>o</span><span>n</span>
+    </p>
+
+    <script>
+        const spans = document.querySelectorAll("#para span");
+        spans.forEach((span, index) => {
+            span.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
 </body>
 
 </html>
